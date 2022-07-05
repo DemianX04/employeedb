@@ -2,6 +2,7 @@ package mx.com.ids.empleadosdb.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +24,8 @@ public class Country implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long codigo;
+	@Column(name = "codigo")
+	private Long code;
 	
 	
 	private String nombre;
@@ -40,12 +42,12 @@ public class Country implements Serializable {
 
 
 	public Long getCodigo() {
-		return codigo;
+		return code;
 	}
 
 
 	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
+		this.code = codigo;
 	}
 
 
@@ -61,7 +63,7 @@ public class Country implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Country [id=" + id + ", codigo=" + codigo + ", nombre=" + nombre + "]";
+		return "Country [id=" + id + ", codigo=" + code + ", nombre=" + nombre + "]";
 	}
 	
 	

@@ -9,7 +9,8 @@ import mx.com.ids.empleadosdb.model.Country;
 public interface CountryService {
 
 	public List<Country> FindAll();
-	public void Save(Country country);
+	Country Save(Country country);
 	public Country  FindById(Long id);
 	public void Delete(Long id);
+	Country update(Country pais);
 }

@@ -1,9 +1,12 @@
 package mx.com.ids.empleadosdb.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import mx.com.ids.empleadosdb.exception.ResourceNotFoundException;
 
 import mx.com.ids.empleadosdb.model.Language;
 import mx.com.ids.empleadosdb.repository.LanguageRepository;
@@ -20,8 +23,8 @@ public class LanguageServiceImpl implements LanguageService {
 	}
 
 	@Override
-	public void Save(Language lenguaje) {
-		language.save(lenguaje);
+	public Language Save(Language lenguaje) {
+		return language.save(lenguaje);
 	}
 
 	@Override
@@ -32,6 +35,21 @@ public class LanguageServiceImpl implements LanguageService {
 	@Override
 	public void Delete(Long id) {
 		language.deleteById(id);
+	}
+
+	@Override
+	public Language update(Language lenguaje) {
+		Optional<Language> lista = this.language.findById(lenguaje.getCodigo());
+		
+		if (lista.isPresent()) {
+			Language languageU = lista.get();
+			languageU.setId(lenguaje.getId());
+			languageU.setCodigo(lenguaje.getCodigo());
+			languageU.setLenguaje(lenguaje.getLenguaje());
+			return languageU;
+		}else {
+			throw new ResourceNotFoundException("Record not found whit id: " + lenguaje.getId());
+		}
 	}
 	
 	

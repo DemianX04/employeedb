@@ -7,7 +7,8 @@ import mx.com.ids.empleadosdb.model.Language;
 public interface LanguageService {
 	
 	public List<Language> FindAll();
-	public void Save(Language lenguaje);
+	public Language Save(Language lenguaje);
 	public Language FindById(Long id);
 	public void Delete(Long id);
+	Language update(Language lenguaje); 
 }

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import mx.com.ids.empleadosdb.model.Airport;
 
 @Repository
-public interface AirportRepository extends CrudRepository<Airport, Long> {
+public interface AirportRepository extends CrudRepository<Airport, String> {
 
 }

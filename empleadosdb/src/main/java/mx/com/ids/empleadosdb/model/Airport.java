@@ -24,7 +24,7 @@ private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long codigo;
+	private String name;
 
 
 	public Country getId() {
@@ -37,19 +37,19 @@ private static final long serialVersionUID = 1L;
 	}
 
 
-	public Long getCodigo() {
-		return codigo;
+	public String getName() {
+		return name;
 	}
 
 
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Airport [id=" + id + ", codigo=" + codigo + "]";
+		return "Airport [id=" + id + ", codigo=" + name + "]";
 	}
 	
 	

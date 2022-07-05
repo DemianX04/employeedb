@@ -9,8 +9,9 @@ import mx.com.ids.empleadosdb.model.Airport;
 public interface AirportService {
 	
 	public List<Airport> FindAll();
-	public void Save(Airport airport);
-	public Airport FindById(Long id);
-	public void Delete(Long id);
+	public Airport Save(Airport airport);
+	public Airport FindById(String nombre);
+	public void Delete(String nombre);
+	Airport update(Airport airport);
 
 }

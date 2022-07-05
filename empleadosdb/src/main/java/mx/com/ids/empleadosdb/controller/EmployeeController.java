@@ -29,7 +29,7 @@ public class EmployeeController {
 		List<Employee> listaEmpleados = employeS.FindAll();
 		
 		if (listaEmpleados.isEmpty()) {
-			return new ResponseEntity<>(new Mensaje("Sin productos en la base de datos"), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(new Mensaje("Sin Empleados en la base de datos"), HttpStatus.BAD_REQUEST);
 		}
 		return ResponseEntity.ok().body(employeS.FindAll());
 	}
@@ -48,7 +48,7 @@ public class EmployeeController {
 	}
 	
 	@PutMapping("/actualizarproducto/{id}")
-	public ResponseEntity<Employee> updateProduct(@PathVariable long id,@RequestBody Employee empleado){
+	public ResponseEntity<Employee> updateEmployee(@PathVariable long id,@RequestBody Employee empleado){
 		empleado.setId(id);
 		return ResponseEntity.ok().body(this.employeS.update(empleado));
 	}

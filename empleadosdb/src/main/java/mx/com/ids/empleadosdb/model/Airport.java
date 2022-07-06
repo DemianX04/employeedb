@@ -2,7 +2,7 @@ package mx.com.ids.empleadosdb.model;
 
 import java.io.Serializable;
 
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,6 +24,7 @@ private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name= "airport")
 	private String name;
 
 
@@ -44,6 +45,20 @@ private static final long serialVersionUID = 1L;
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	
+
+	public Airport(String name) {
+		super();
+		this.name = name;
+	}
+
+	
+	
+
+	public Airport() {
+		super();
 	}
 
 

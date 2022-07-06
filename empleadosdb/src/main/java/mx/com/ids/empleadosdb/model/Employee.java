@@ -46,6 +46,18 @@ public class Employee implements Serializable {
 		this.firstname = firstname;
 	}
 
+	
+	
+	public Employee() {
+		super();
+	}
+
+	public Employee(String surname, String firstname) {
+		super();
+		this.surname = surname;
+		this.firstname = firstname;
+	}
+
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", surname=" + surname + ", firstname=" + firstname + "]";

@@ -52,6 +52,18 @@ public class Language  implements Serializable{
 		this.lenguaje = lenguaje;
 	}
 
+	
+	
+	
+	public Language() {
+		super();
+	}
+
+	public Language(String lenguaje) {
+		super();
+		this.lenguaje = lenguaje;
+	}
+
 	@Override
 	public String toString() {
 		return "Language [id=" + id + ", codigo=" + codigo + ", lenguaje=" + lenguaje + "]";

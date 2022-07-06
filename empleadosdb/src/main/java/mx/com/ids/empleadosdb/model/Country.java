@@ -60,6 +60,19 @@ public class Country implements Serializable {
 		this.nombre = nombre;
 	}
 
+	
+	
+
+	public Country() {
+		super();
+	}
+
+
+	public Country(String nombre) {
+		super();
+		this.nombre = nombre;
+	}
+
 
 	@Override
 	public String toString() {

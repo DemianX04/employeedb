@@ -11,8 +11,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import mx.com.ids.empleadosdb.exception.Mensaje;
@@ -42,7 +40,7 @@ public class ClienteController {
 	AirportRepository airportR;
 	
 	
-	@PostMapping("/Clientes/apiv1/clientes/add")
+	@PostMapping("/apiv1/clientes/add")
 	public ResponseEntity<?> addClient(@Valid @RequestBody Map<String,String> json, BindingResult result){
 		if(result.hasErrors()){
             return new ResponseEntity<>(new Mensaje("Campos mal o email invalido"), HttpStatus.BAD_REQUEST);
@@ -52,10 +50,11 @@ public class ClienteController {
 		Country pais = new Country(json.get("nombre"));
 		Airport aero = new Airport(json.get("aereopuerto"));
 		Language leng = new Language(json.get("lenguaje"));
+		airportR.save(aero);
 		employeR.save(empleado);
 		conutryR.save(pais);
 		languageR.save(leng);
-		airportR.save(aero);
+		
 		
 		
 		return new ResponseEntity<>(new Mensaje("Empleado guardado"), HttpStatus.CREATED);
